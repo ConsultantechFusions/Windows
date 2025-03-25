@@ -17,9 +17,7 @@ on:
   merge_group:
 
 env:
-  DOTNET_VERSION: ${{ '8.0.201' }}
-  DOTNET_INSTALL_DIR: dotnet-install
-  DOTNET_ROOT: dotnet-install
+  DOTNET_VERSION: ${{ '9.0.x' }}
   ENABLE_DIAGNOSTICS: true
   MSBUILD_VERBOSITY: normal
   #COREHOST_TRACE: 1
@@ -157,7 +155,7 @@ jobs:
 
       - name: Run SourceGenerators tests
         id: test-generator
-        run: vstest.console.exe ./tooling/CommunityToolkit.Tooling.SampleGen.Tests/bin/Release/net6.0/CommunityToolkit.Tooling.SampleGen.Tests.dll /logger:"trx;LogFileName=SourceGenerators.trx"
+        run: vstest.console.exe ./tooling/CommunityToolkit.Tooling.SampleGen.Tests/bin/Release/net8.0/CommunityToolkit.Tooling.SampleGen.Tests.dll /logger:"trx;LogFileName=SourceGenerators.trx"
 
       - name: Run component tests against ${{ matrix.multitarget }}
         if: ${{ matrix.multitarget == 'uwp' || matrix.multitarget == 'wasdk' }}

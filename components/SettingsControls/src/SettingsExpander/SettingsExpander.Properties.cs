@@ -72,8 +72,6 @@ public partial class SettingsExpander
      new PropertyMetadata(defaultValue: false, (d, e) => ((SettingsExpander)d).OnIsExpandedPropertyChanged((bool)e.OldValue, (bool)e.NewValue)));
 
     /// <summary>
-    /// 
-    /// <summary>
     /// Gets or sets the Header.
     /// </summary>
     public object Header
@@ -137,6 +135,8 @@ public partial class SettingsExpander
         get => (bool)GetValue(IsExpandedProperty);
         set => SetValue(IsExpandedProperty, value);
     }
+
+    /// <inheritdoc/>
     protected virtual void OnIsExpandedPropertyChanged(bool oldValue, bool newValue)
     {
         OnIsExpandedChanged(oldValue, newValue);
